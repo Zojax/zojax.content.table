@@ -1,0 +1,34 @@
+/* zrt-cssregistry: */
+
+@media all {
+
+  /* columns */
+  table.z-table td.ctb-typeicon { 
+    padding: 0.25em 0.5em;
+    text-align: center;
+  }
+
+  table.z-table td.ctb-location a {
+    color: discreetColor;
+    font-size: 90%;
+  }
+
+  table.z-table td.ctb-location img {
+    width: auto;
+    height: 1.2em
+  }
+
+  table.z-table td.ctb-author div,
+  table.z-table td.ctb-avatar div {
+    text-align: center;
+  }
+
+  table.z-table td.ctb-author img,
+  table.z-table td.ctb-avatar img {
+    width: auto;
+    height: 2.5em;
+    padding: 2px;
+    border: 1px solid globalBorderColor;
+  }
+ 
+}

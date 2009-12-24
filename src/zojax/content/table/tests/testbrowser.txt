@@ -1,0 +1,212 @@
+==============
+Contents table
+==============
+
+    >>> from zope import interface, component, event
+    >>> from zope.lifecycleevent import ObjectCreatedEvent
+    >>> from zope.app.component.hooks import setSite
+    >>> from zope.publisher.browser import TestRequest
+    >>> from zojax.ownership.interfaces import IOwnership
+    >>> from zojax.table.table import Table
+    >>> from zojax.content.table.interfaces import IContentsTable
+    >>> from zojax.content.table.tests.tests import Document, DocumentContainer
+
+    >>> root = getRootFolder()
+    >>> setSite(root)
+    >>> sm = root.getSiteManager()
+
+    >>> container = DocumentContainer('Container', 'Description')
+    >>> event.notify(ObjectCreatedEvent(container))
+    >>> root['container'] = container
+
+    >>> content = Document('Content', 'Content Description')
+    >>> event.notify(ObjectCreatedEvent(content))
+    >>> root['container']['content'] = content
+    >>> IOwnership(root['container']['content']).ownerId = 'zope.mgr'
+
+
+    >>> class ContentsTable(Table):
+    ...     interface.implements(IContentsTable)
+    ...     
+    ...     dataset = []
+    ...     
+    ...     def initDataset(self):
+    ...         pass
+
+    >>> table = ContentsTable(root, TestRequest(), None)
+    >>> table.update()
+    >>> print table.render()
+    <div class="z-table-container">
+      <div class="z-table-emtpy">There are no items.</div>
+    </div>
+
+Title column
+
+    >>> table.enabledColumns = ('title', 'titledescription')
+    >>> table.dataset = [container, content]
+    >>> table.update()
+    >>> print table.render()
+    <div...
+    <tr class="z-table-record odd">
+      <td class="ctb-title">
+         <a href="http://127.0.0.1/container/" title="Description">Container</a>
+      </td>
+      <td class="ctb-title">
+         <a href="http://127.0.0.1/container/" title="Description">Container</a>
+        <div>Description</div>
+      </td>
+    </tr>
+    <tr class="z-table-record even">
+      <td class="ctb-title">
+        <a href="http://127.0.0.1/container/content/view.html" title="Content Description">Content</a>
+      </td>
+      <td class="ctb-title">
+        <a href="http://127.0.0.1/container/content/view.html" title="Content Description">Content</a>
+        <div>Content Description</div>
+      </td>
+    </tr>
+    ...
+    </div>
+
+DC Times
+
+    >>> table.enabledColumns = ('created', 'modified')
+    >>> table.dataset = [container, Document('Content'), object()]
+    >>> table.update()
+    >>> print table.render()
+    <div class="z-table-container">
+      <table class="z-table">
+        <thead>
+          <tr>
+            <th>Created</th>
+            <th>Last updated</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="z-table-record odd">
+            <td class="ctb-created">... second(s) ago...</td>
+            <td class="ctb-modified">... second(s) ago...</td>
+          </tr>
+          <tr class="z-table-record even">
+            <td class="ctb-created">---</td>
+            <td class="ctb-modified">---</td>
+          </tr>
+          <tr class="z-table-record odd">
+            <td class="ctb-created">---</td>
+            <td class="ctb-modified">---</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+Content Type
+
+    >>> table.enabledColumns = ('type', 'typeicon')
+    >>> table.dataset = [container, content]
+    >>> table.update()
+    >>> print table.render()
+    <div class="z-table-container">
+      <table class="z-table">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="z-table-record odd">
+            <td class="ctb-type">
+              <img src="..." alt="ContentType" width="16" height="16" border="0" />
+              Document container
+            </td>
+            <td class="ctb-typeicon">
+              <img src="..." alt="ContentType" width="16" height="16" border="0" />
+            </td>
+          </tr>
+          <tr class="z-table-record even">
+            <td class="ctb-type">
+              <img src="..." alt="ContentType" width="16" height="16" border="0" />
+              Document
+            </td>
+            <td class="ctb-typeicon">
+              <img src="..." alt="ContentType" width="16" height="16" border="0" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+Location
+
+    >>> table.enabledColumns = ('location',)
+    >>> table.dataset = [container, content]
+    >>> table.update()
+    >>> print table.render()
+    <div class="z-table-container">
+      <table class="z-table">
+        <thead>
+          <tr>
+            <th>Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="z-table-record odd">
+            <td class="ctb-location">
+              <img src="..." alt="Folder" width="16" height="16" border="0" />
+              <a href="http://127.0.0.1/" title="">[No title]</a>
+            </td>
+          </tr>
+          <tr class="z-table-record even">
+            <td class="ctb-location">
+              <img src="..." alt="Content" width="16" height="16" border="0" />
+              <a href="http://127.0.0.1/container/"
+                title="Description">Container</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+Author
+
+    >>> table.enabledColumns = ('author', 'authorname', 'avatar')
+    >>> table.dataset = [container, content]
+    >>> table.update()
+    >>> print table.render()
+    <div class="z-table-container">
+      <table class="z-table">
+        <thead>
+          <tr>
+            <th>Author</th> <th>Author</th> <th>Avatar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="z-table-record odd">
+           <td class="ctb-author">
+           </td> <td class="ctb-author">
+           </td> <td class="ctb-avatar">
+           </td>
+          </tr> <tr class="z-table-record even">
+            <td class="ctb-author">
+              <div>
+                <img src="http://127.0.0.1/@@profile.avatar/0" />
+              </div>
+              <div>
+                Manager
+              </div>
+            </td> <td class="ctb-author">
+              <div>
+                Manager
+              </div>
+            </td> <td class="ctb-avatar">
+              <div>
+                <img src="http://127.0.0.1/@@profile.avatar/0" />
+              </div>
+             </td>
+           </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    >>> setSite(None)
+
