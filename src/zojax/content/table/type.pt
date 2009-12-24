@@ -1,0 +1,4 @@
+<tal:block tal:define="ct view/query">
+  <tal:block content="structure ct/@@zmi_icon" />
+  <tal:block condition="view/showName" content="structure ct/title" />
+</tal:block>

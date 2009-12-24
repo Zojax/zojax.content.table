@@ -1,0 +1,6 @@
+<tal:block tal:define="item view/query">
+  <a tal:attributes="href item/url; title item/description"
+     tal:content="item/title">Content Title</a>
+  <div tal:content="structure item/description"
+       tal:condition="python:view.showDescription and item['description']"></div>
+</tal:block>

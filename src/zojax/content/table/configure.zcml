@@ -1,0 +1,58 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:i18n="http://namespaces.zope.org/i18n"
+   xmlns:zojax="http://namespaces.zope.org/zojax"
+   i18n_domain="zojax.content.table">
+
+  <!-- title column -->
+  <adapter
+     name="title"
+     factory=".title.TitleColumn" />
+
+  <adapter
+     name="titledescription"
+     factory=".title.TitleWithDescriptionColumn" />
+
+  <!-- dc times -->
+  <adapter
+     name="modified"
+     factory=".times.ModifiedColumn" />
+
+  <adapter
+     name="created"
+     factory=".times.CreatedColumn" />
+
+  <!-- content type -->
+  <adapter
+     name="type"
+     factory=".type.TypeColumn" />
+
+  <adapter
+     name="typeicon"
+     factory=".type.TypeIconColumn" />
+
+  <!-- content locaiton -->
+  <adapter
+     name="location"
+     factory=".location.LocationColumn" />
+
+  <!-- content author -->
+  <adapter
+     name="author"
+     factory=".author.AuthorColumn" />
+
+  <adapter
+     name="authorname"
+     factory=".author.AuthorNameColumn" />
+
+  <adapter
+     name="avatar"
+     factory=".author.AvatarColumn" />
+
+  <!-- styles -->
+  <zojax:resourceinclude
+     name="zojax-content-table.css"
+     file="styles.css" 
+     library="zojax" type="stylesheet" filetype="zrt" />
+
+</configure>
