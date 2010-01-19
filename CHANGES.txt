@@ -1,38 +1,8 @@
-=======
-CHANGES
-=======
-
-0.2.3 (Unreleased)
+1.0.2 (Unreleased)
 ------------------
 
 
-0.2.2 (2009-10-07)
+1.0.1 (2010-01-19)
 ------------------
 
-- Update tests
-
-
-0.2.1 (2009-08-19)
-------------------
-
-- Added content table styles
-
-
-0.2.0 (2009-08-11)
-------------------
-
-- Added 'author', 'authorname', 'avatar' columns
-
-- Copyright changed to 'Zope Foundation and Contributors'
-
-
-0.1.1 (2009-05-06)
-------------------
-
-- Do not use z3c.autoinclude
-
-
-0.1.0 (2009-03-14)
-------------------
-
-- Initial release.
+- zojax initial release
