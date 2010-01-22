@@ -27,9 +27,9 @@ Contents table
 
     >>> class ContentsTable(Table):
     ...     interface.implements(IContentsTable)
-    ...     
+    ...
     ...     dataset = []
-    ...     
+    ...
     ...     def initDataset(self):
     ...         pass
 
@@ -78,22 +78,16 @@ DC Times
       <table class="z-table">
         <thead>
           <tr>
-            <th>Created</th>
-            <th>Last updated</th>
+      <th class="ctb-created">Created</th> <th class="ctb-modified">Last updated</th>
           </tr>
         </thead>
         <tbody>
           <tr class="z-table-record odd">
-            <td class="ctb-created">... second(s) ago...</td>
-            <td class="ctb-modified">... second(s) ago...</td>
-          </tr>
-          <tr class="z-table-record even">
-            <td class="ctb-created">---</td>
-            <td class="ctb-modified">---</td>
-          </tr>
-          <tr class="z-table-record odd">
-            <td class="ctb-created">---</td>
-            <td class="ctb-modified">---</td>
+      <td class="ctb-created">...0 second(s) ago...</td> <td class="ctb-modified">...0 second(s) ago...</td>
+          </tr> <tr class="z-table-record even">
+      <td class="ctb-created">---</td> <td class="ctb-modified">---</td>
+          </tr> <tr class="z-table-record odd">
+      <td class="ctb-created">---</td> <td class="ctb-modified">---</td>
           </tr>
         </tbody>
       </table>
@@ -109,8 +103,7 @@ Content Type
       <table class="z-table">
         <thead>
           <tr>
-            <th>Type</th>
-            <th>Type</th>
+            <th class="ctb-type">Type</th> <th class="ctb-typeicon">Type</th>
           </tr>
         </thead>
         <tbody>
@@ -146,7 +139,7 @@ Location
       <table class="z-table">
         <thead>
           <tr>
-            <th>Location</th>
+            <th class="ctb-location">Location</th>
           </tr>
         </thead>
         <tbody>
@@ -177,7 +170,7 @@ Author
       <table class="z-table">
         <thead>
           <tr>
-            <th>Author</th> <th>Author</th> <th>Avatar</th>
+            <th class="ctb-author">Author</th> <th class="ctb-author">Author</th> <th class="ctb-avatar">Avatar</th>
           </tr>
         </thead>
         <tbody>
@@ -207,6 +200,6 @@ Author
         </tbody>
       </table>
     </div>
-    
+
     >>> setSite(None)
 
