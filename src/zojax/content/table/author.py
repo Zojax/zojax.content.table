@@ -63,6 +63,9 @@ class AuthorColumn(Column):
                 info['profile'] = '%s/'%absoluteURL(space, request)
 
             return info
+        return {'avatar': '',
+                'title': _('Unknown'),
+                'profile': ''}
 
 
 class AvatarColumn(AuthorColumn):
