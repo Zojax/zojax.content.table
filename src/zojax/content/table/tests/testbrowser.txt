@@ -176,7 +176,14 @@ Author
         <tbody>
           <tr class="z-table-record odd">
            <td class="ctb-author">
-           </td> <td class="ctb-author">
+           <div>
+            Unknown
+            </div>
+           </td>
+           <td class="ctb-author">
+           <div>
+            Unknown
+            </div>
            </td> <td class="ctb-avatar">
            </td>
           </tr> <tr class="z-table-record even">
