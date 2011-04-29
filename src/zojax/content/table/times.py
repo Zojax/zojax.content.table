@@ -11,12 +11,14 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
+from zojax.content.type.interfaces import IContentContainer
+from zojax.catalog.interfaces import ICatalog
 """
 
 $Id$
 """
 from zope import component, interface
-from zope.component import queryMultiAdapter
+from zope.component import queryMultiAdapter, getUtility
 from zope.dublincore.interfaces import IDCTimes
 
 from zojax.table.column import Column
@@ -49,14 +51,26 @@ class ModifiedColumn(TimesColumn):
     name = 'modified'
     title = _('Last updated')
     cssClass = 'ctb-modified'
+    
+    def update(self):
+        super(ModifiedColumn, self).update()
+        self.catalog = getUtility(ICatalog)
 
     def query(self, default=None):
-        dc = IDCTimes(self.content, None)
+        dc = None
+        if IContentContainer.providedBy(self.content):
+            try:
+                dc = IDCTimes(self.catalog.searchResults(traversablePath={'any_of':(self.content,)},
+                                                         sort_on='modified', sort_order='reverse')[0], None)
+            except (TypeError,IndexError), e:
+                pass
+        if dc is None:
+            dc = IDCTimes(self.content, None)
         if dc is not None:
             return dc.modified
 
         return None
-
+    
 
 class CreatedColumn(TimesColumn):
 
