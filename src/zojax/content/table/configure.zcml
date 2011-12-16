@@ -4,6 +4,8 @@
    xmlns:zojax="http://namespaces.zope.org/zojax"
    i18n_domain="zojax.content.table">
 
+  <i18n:registerTranslations directory="locales" />
+
   <!-- title column -->
   <adapter
      name="title"

@@ -1,0 +1,67 @@
+##############################################################################
+#
+# Copyright (c) 2003-2004 Zope Corporation and Contributors.
+# All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+##############################################################################
+msgid ""
+msgstr ""
+"Project-Id-Version: Development/Unknown\n"
+"POT-Creation-Date: Thu Dec  8 22:41:33 2011\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Zope 3 Developers <zope3-dev@zope.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: zope/app/locales/extract.py\n"
+
+#: src/zojax/content/table/author.pt:10
+msgid "View profile"
+msgstr ""
+
+#: src/zojax/content/table/author.py:37
+#: src/zojax/content/table/author.py:86
+msgid "Author"
+msgstr ""
+
+#: src/zojax/content/table/author.py:67
+msgid "Unknown"
+msgstr ""
+
+#: src/zojax/content/table/author.py:75
+msgid "Avatar"
+msgstr ""
+
+#: src/zojax/content/table/location.py:35
+msgid "Location"
+msgstr ""
+
+#: src/zojax/content/table/location.py:63
+#: src/zojax/content/table/title.py:52
+msgid "[No title]"
+msgstr ""
+
+#: src/zojax/content/table/times.py:52
+msgid "Last updated"
+msgstr ""
+
+#: src/zojax/content/table/times.py:78
+msgid "Created"
+msgstr ""
+
+#: src/zojax/content/table/title.py:36
+msgid "Title"
+msgstr ""
+
+#: src/zojax/content/table/type.py:34
+msgid "Type"
+msgstr ""
+
