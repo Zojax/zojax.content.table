@@ -1,0 +1,41 @@
+# ############################################################################
+# Copyright (c) 2003-2004 Zope Corporation and Contributors.
+# All Rights Reserved.
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+# ############################################################################
+# 阿佛坨 <frend.wang@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: Development/Unknown\n"
+"POT-Creation-Date: Thu Dec  8 22:41:33 2011\n"
+"PO-Revision-Date: 2012-02-25 14:59+0800\n"
+"Last-Translator: 阿佛坨 <frend.wang@gmail.com>\n"
+"Language-Team: LIG\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Virtaal 0.7.1\n"
+"Generated-By: zope/app/locales/extract.py\n"
+
+#: src/zojax/content/table/location.py:35
+msgid "Location"
+msgstr "位置"
+
+#: src/zojax/content/table/times.py:78
+msgid "Created"
+msgstr "创建时间"
+
+#: src/zojax/content/table/title.py:36
+msgid "Title"
+msgstr "标题"
+
+#: src/zojax/content/table/type.py:34
+msgid "Type"
+msgstr "类型"
