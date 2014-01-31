@@ -10,10 +10,17 @@ Contents table
     >>> from zojax.table.table import Table
     >>> from zojax.content.table.interfaces import IContentsTable
     >>> from zojax.content.table.tests.tests import Document, DocumentContainer
+    >>> from zope.app.intid import IntIds
+    >>> from zope.app.intid.interfaces import IIntIds
+    >>> from zojax.catalog.catalog import Catalog, ICatalog
 
     >>> root = getRootFolder()
     >>> setSite(root)
     >>> sm = root.getSiteManager()
+    >>> root['catalog'] = Catalog()
+    >>> root['ids'] = IntIds()
+    >>> sm.registerUtility(root['ids'], IIntIds)
+    >>> sm.registerUtility(root['catalog'], ICatalog)
 
     >>> container = DocumentContainer('Container', 'Description')
     >>> event.notify(ObjectCreatedEvent(container))
