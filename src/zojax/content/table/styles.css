@@ -26,7 +26,7 @@
   table.z-table td.ctb-author img,
   table.z-table td.ctb-avatar img {
     width: auto;
-    height: 2.5em;
+    max-height: 36px;
     padding: 2px;
     border: 1px solid globalBorderColor;
   }
